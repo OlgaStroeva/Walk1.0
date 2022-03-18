@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Walk 1.0</string>
+    <!-- Menu strings -->
+    <string name="ad">Объявления</string>
+    <string name="ad_lost">Потерянные</string>
+    <string name="ad_found">Найденные</string>
+    <string name="create_ad">Создать объявление</string>
+    <string name="account">Профиль</string>
+    <string name="register">Регистрация</string>
+    <string name="exit">Выход</string>
+</resources>

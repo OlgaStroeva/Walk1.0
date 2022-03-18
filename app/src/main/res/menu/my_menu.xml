@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item android:title="@string/ad">
+        <menu>
+            <item
+                android:title="@string/ad_lost"
+                android:id="@+id/id_lost_ads"
+            />
+            <item
+                android:title="@string/ad_found"
+                android:id="@+id/id_found_ads"
+                />
+            <item
+                android:title="@string/create_ad"
+                android:id="@+id/id_create_ads"
+                />
+        </menu>
+
+    </item>
+    <item android:title="@string/account"/>
+    <item android:title="@string/register"/>
+    <item android:title="@string/exit"/>
+
+</menu>
