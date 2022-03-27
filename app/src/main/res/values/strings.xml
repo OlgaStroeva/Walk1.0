@@ -24,5 +24,6 @@
     <string name="send_verification_email_error">Не удалось отправить email для подтверждения!</string>
     <string name="send_verification_email">На вашу почту была отправленна ссылка для подтверждения вашего аккаунта!
                                            Пожалуйста подтвердите ваш аккаунт!</string>
-
+    <!--edit activity-->
+    <string name="select_city">*Выберите город</string>
 </resources>

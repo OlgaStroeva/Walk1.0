@@ -7,9 +7,9 @@ import java.io.InputStream
 import java.util.*
 import kotlin.collections.ArrayList
 
-class CityHelper {
+object CityHelper {
     fun getAllCities(context: Context): ArrayList<String> {
-        var tempArray = ArrayList<String>()
+        val tempArray = ArrayList<String>()
         try {
             val inputStream: InputStream = context.assets.open("countriesToCities.json")
             val size: Int = inputStream.available()
@@ -37,7 +37,7 @@ class CityHelper {
             return tempList
         }
         for (selection : String in list){
-            if(selection.toLowerCase(Locale.ROOT).startsWith(searchText.toLowerCase(Locale.ROOT)))
+            if(selection.lowercase(Locale.ROOT).startsWith(searchText.lowercase(Locale.ROOT)))
                 tempList.add(selection)
         }
         if (tempList.size == 0)

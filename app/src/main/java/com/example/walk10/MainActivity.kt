@@ -1,13 +1,16 @@
 package com.example.walk10
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
+import com.example.walk10.act.EditAdsAct
 import com.example.walk10.databinding.ActivityMainBinding
 import com.example.walk10.dialoghelper.DialogConst
 import com.example.walk10.dialoghelper.DialogHelper
@@ -30,14 +33,24 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         init()
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == R.id.id_new_ads){
+            val i = Intent(this,EditAdsAct::class.java)
+            startActivity(i)}
+        return super.onOptionsItemSelected(item)
+    }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
     override fun onStart() {
         super.onStart()
         uiUpdate(mAuth.currentUser)
     }
 
     private fun init(){
-
-        var toggle = ActionBarDrawerToggle(this, rootElement.drawerLayout, rootElement.mainContent.toolbar, R.string.open, R.string.close)
+        setSupportActionBar(rootElement.mainContent.toolbar)
+        val toggle = ActionBarDrawerToggle(this, rootElement.drawerLayout, rootElement.mainContent.toolbar, R.string.open, R.string.close)
         rootElement.drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         rootElement.navView.setNavigationItemSelectedListener (this)
@@ -49,13 +62,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         when(item.itemId){
             R.id.id_lost_ads ->{
-                Toast.makeText(this,"Presed id_lost_ads",Toast.LENGTH_LONG).show()
+                Toast.makeText(this," id_lost_ads",Toast.LENGTH_LONG).show()
             }
             R.id.id_found_ads ->{
-                Toast.makeText(this,"Presed id_found_ads",Toast.LENGTH_LONG).show()
+                Toast.makeText(this," id_found_ads",Toast.LENGTH_LONG).show()
             }
             R.id.id_create_ads ->{
-                Toast.makeText(this,"Presed id_create_ads",Toast.LENGTH_LONG).show()
+
             }
             R.id.id_account_ads ->{
                 Toast.makeText(this,"id_account_ads",Toast.LENGTH_LONG).show()
