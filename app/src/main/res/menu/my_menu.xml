@@ -20,8 +20,18 @@
         </menu>
 
     </item>
-    <item android:title="@string/account"/>
-    <item android:title="@string/register"/>
-    <item android:title="@string/exit"/>
+
+    <item
+        android:title="@string/account"
+        android:id="@+id/id_account_ads"/>
+    <item
+        android:title="@string/register"
+        android:id="@+id/id_register_ads"/>
+    <item
+        android:title="@string/entrance"
+        android:id="@+id/id_entrance_ads"/>
+    <item
+        android:title="@string/exit"
+        android:id="@+id/id_exit_ads"/>
 
 </menu>
