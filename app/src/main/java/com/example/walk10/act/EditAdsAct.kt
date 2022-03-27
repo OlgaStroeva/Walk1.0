@@ -35,18 +35,19 @@ class EditAdsAct :AppCompatActivity() {
     fun onClickSelectCity(view: View) {
         val listCity = CityHelper.getAllCities(this)
         dialog.showSpinnerDialog(this, listCity, rootElement.tvCity)
-        if(rootElement.tvCity2.text.toString()==getString(R.string.select_city2)){
-            rootElement.tvCity2.text = getString(R.string.select_city2)
+        if(rootElement.tvCity.text.toString()==getString(R.string.select_city)){
+            rootElement.tvCity.text = getString(R.string.select_city)
         }
     }
-    fun onClickSelectCity2(view: View) {
+    /*
+    fun onClickSelectCity(view: View) {
         val selectedCity2 = rootElement.tvCity.text.toString()
         if (selectedCity2 != getString(R.string.select_city)){
         val listCity2 = CityHelper.getAllCities2(selectedCity2,this)
-        dialog.showSpinnerDialog(this, listCity2, rootElement.tvCity2)
+        dialog.showSpinnerDialog(this, listCity2, rootElement.tvCity)
     } else {
         Toast.makeText(this, "No country selected", Toast.LENGTH_LONG).show()
     }
 
-    }
+    }*/
 }
