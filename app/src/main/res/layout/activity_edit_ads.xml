@@ -223,7 +223,7 @@
                         android:minHeight="48dp"
                         android:onClick="onClickSelectAnimal"
                         android:padding="10dp"
-                        android:text="@string/select_category"
+                        android:text="@string/select_animal"
                         android:textColor="@color/black" />
 
                     <LinearLayout
@@ -261,6 +261,17 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/btPublish"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@color/white"
+                android:backgroundTint="@color/white"
+                android:onClick="onClickPublish"
+                android:text="@string/publish"
+                android:textColor="@color/white" />
 
         </LinearLayout>
     </ScrollView>

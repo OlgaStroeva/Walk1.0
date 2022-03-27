@@ -11,6 +11,7 @@ import com.example.walk10.databinding.ActivityEditAdsBinding
 import com.example.walk10.dialogs.DialogSpinnerHelper
 import com.example.walk10.utils.CityHelper
 import android.content.Intent
+import com.example.walk10.dataVas.dbManager
 
 class EditAdsAct :AppCompatActivity() {
     private val dialog = DialogSpinnerHelper()
@@ -26,6 +27,11 @@ class EditAdsAct :AppCompatActivity() {
     private fun init(){
     }
     //OnClicks
+
+    fun onClickPublish(view: View){
+        val dbManager = dbManager()
+        dbManager.publishAd()
+    }
 
     fun onClickSelectCat(view: View) {
             val listCity2 = resources.getStringArray(R.array.category).toMutableList() as ArrayList

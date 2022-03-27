@@ -1,10 +1,40 @@
 {
   "project_info": {
     "project_number": "676932433454",
+    "firebase_url": "https://walkkotlin-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "walkkotlin",
     "storage_bucket": "walkkotlin.appspot.com"
   },
   "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:676932433454:android:c8b1bfea481c75f21411bf",
+        "android_client_info": {
+          "package_name": "com.example.Walk10"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "676932433454-nadlq0pluq8t62nudi4olgvl0a355b2c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBL3xARUhvbTdbtuaZjpIkJR_HKH_LVmp4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "676932433454-nadlq0pluq8t62nudi4olgvl0a355b2c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
     {
       "client_info": {
         "mobilesdk_app_id": "1:676932433454:android:761b342101e077f91411bf",
