@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item.itemId == R.id.id_new_ads){
-            val i = Intent(this,EditAdsAct::class.java)
+            val i = Intent(this, EditAdsAct::class.java)
             startActivity(i)
         }
         return super.onOptionsItemSelected(item)
@@ -60,7 +60,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
         rootElement.navView.setNavigationItemSelectedListener (this)
         tvAccount = rootElement.navView.getHeaderView(0).findViewById(R.id.accountEmail)
-
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {

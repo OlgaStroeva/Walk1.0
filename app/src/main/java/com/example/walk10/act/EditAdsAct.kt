@@ -12,10 +12,6 @@ import com.example.walk10.dialogs.DialogSpinnerHelper
 import com.example.walk10.utils.CityHelper
 import android.content.Intent
 
-
-
-
-
 class EditAdsAct :AppCompatActivity() {
     private val dialog = DialogSpinnerHelper()
     lateinit var rootElement: ActivityEditAdsBinding
