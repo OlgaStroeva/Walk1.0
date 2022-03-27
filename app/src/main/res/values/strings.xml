@@ -8,4 +8,21 @@
     <string name="account">Профиль</string>
     <string name="register">Регистрация</string>
     <string name="exit">Выход</string>
+    <string name="entrance">Вход</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="not_reg">Войдите в аккаунт или зарегистрируйтесь</string>
+
+    <!-- Sign dialog -->
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="register_action">Зарегистрироваться</string>
+    <string name="entrance_action">Войти</string>
+    <string name="forget_password">Забыли пароль?</string>
+    <string name="reg_error">Не удалось зарегистрироваться!</string>
+    <string name="sign_in_error">Не удалось войти</string>
+    <string name="send_verification_email_error">Не удалось отправить email для подтверждения!</string>
+    <string name="send_verification_email">На вашу почту была отправленна ссылка для подтверждения вашего аккаунта!
+                                           Пожалуйста подтвердите ваш аккаунт!</string>
+
 </resources>
