@@ -136,23 +136,23 @@
                     </LinearLayout>
 
                     <TextView
-                        android:id="@+id/tvTitleIndex"
+                        android:id="@+id/tvTitleAdress"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
-                        android:text="@string/index"
+                        android:text="@string/adress"
                         android:textColor="@color/design_default_color_secondary_variant"
                         android:textStyle="bold" />
 
                     <EditText
-                        android:id="@+id/editTextTextIndex"
+                        android:id="@+id/editTextTextAdress"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
                         android:ems="10"
-                        android:hint="@string/index"
-                        android:inputType="none|number"
+                        android:hint="@string/adress_hint"
+                        android:inputType="textShortMessage|none|number"
                         android:minHeight="48dp"
                         android:padding="10dp"
                         android:textColorHighlight="@color/teal_700" />
@@ -174,28 +174,28 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/tvTitleCity"
+                        android:id="@+id/tvTitleCat"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
-                        android:text="@string/city"
+                        android:text="@string/category"
                         android:textColor="@color/design_default_color_secondary_variant"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/tvCity"
+                        android:id="@+id/tvCat"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@android:drawable/editbox_background_normal"
                         android:minHeight="48dp"
-                        android:onClick="onClickSelectCity"
+                        android:onClick="onClickSelectCat"
                         android:padding="10dp"
-                        android:text="@string/select_city"
+                        android:text="@string/select_category"
                         android:textColor="@color/black" />
 
                     <LinearLayout
-                        android:id="@+id/divider1"
+                        android:id="@+id/divider01"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:layout_marginStart="5dp"
@@ -206,28 +206,28 @@
                     </LinearLayout>
 
                     <TextView
-                        android:id="@+id/tvTitleTel"
+                        android:id="@+id/tvTitleAnimal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
-                        android:text="@string/tel"
+                        android:text="@string/Animal"
                         android:textColor="@color/design_default_color_secondary_variant"
                         android:textStyle="bold" />
 
-                    <EditText
-                        android:id="@+id/editTextTextTel"
+                    <TextView
+                        android:id="@+id/tvAnimal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:hint="@string/tel_number"
-                        android:inputType="none|phone"
+                        android:background="@android:drawable/editbox_background_normal"
                         android:minHeight="48dp"
+                        android:onClick="onClickSelectAnimal"
                         android:padding="10dp"
-                        android:textColorHighlight="@color/teal_700" />
+                        android:text="@string/select_category"
+                        android:textColor="@color/black" />
 
                     <LinearLayout
-                        android:id="@+id/divider2"
+                        android:id="@+id/divider02"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="5dp"
@@ -238,23 +238,23 @@
                     </LinearLayout>
 
                     <TextView
-                        android:id="@+id/tvTitleIndex"
+                        android:id="@+id/tvTitleDescription"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
-                        android:text="@string/index"
+                        android:text="@string/description"
                         android:textColor="@color/design_default_color_secondary_variant"
                         android:textStyle="bold" />
 
                     <EditText
-                        android:id="@+id/editTextTextIndex"
+                        android:id="@+id/editTextTextDescription"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
                         android:ems="10"
-                        android:hint="@string/index"
-                        android:inputType="none|number"
+                        android:hint="@string/description_hint"
+                        android:inputType="textLongMessage|none|number"
                         android:minHeight="48dp"
                         android:padding="10dp"
                         android:textColorHighlight="@color/teal_700" />

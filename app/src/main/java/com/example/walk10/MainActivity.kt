@@ -1,16 +1,20 @@
 package com.example.walk10
 
+import android.content.ClipData
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import com.example.walk10.act.EditAdsAct
+import com.example.walk10.databinding.ActivityEditAdsBinding
 import com.example.walk10.databinding.ActivityMainBinding
 import com.example.walk10.dialoghelper.DialogConst
 import com.example.walk10.dialoghelper.DialogHelper
@@ -40,7 +44,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item.itemId == R.id.id_new_ads){
             val i = Intent(this,EditAdsAct::class.java)
-            startActivity(i)}
+            startActivity(i)
+        }
         return super.onOptionsItemSelected(item)
     }
     override fun onStart() {

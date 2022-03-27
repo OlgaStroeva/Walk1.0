@@ -2,8 +2,9 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="New ad"
+    <item
         android:id="@+id/id_new_ads"
         android:icon="@drawable/ic_new_adds"
-        app:showAsAction="ifRoom"/>
+        android:title="New ad"
+        app:showAsAction="always" />
 </menu>

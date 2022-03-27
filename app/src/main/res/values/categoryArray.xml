@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="category">
+        <item>Потерянные</item>
+        <item>Найденные</item>
+    </string-array>
+    <string-array name="animals">
+        <item>Кошка</item>
+        <item>Собака</item>
+    </string-array>
+</resources>
