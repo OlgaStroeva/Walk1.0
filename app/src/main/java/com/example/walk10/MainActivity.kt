@@ -3,7 +3,7 @@ package com.example.walk10
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
+
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
@@ -14,7 +14,7 @@ import com.example.walk10.act.EditAdsAct
 import com.example.walk10.databinding.ActivityMainBinding
 import com.example.walk10.dialoghelper.DialogConst
 import com.example.walk10.dialoghelper.DialogHelper
-import com.google.android.material.navigation.NavigationBarView
+
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -33,15 +33,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         init()
     }
 
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item.itemId == R.id.id_new_ads){
             val i = Intent(this,EditAdsAct::class.java)
             startActivity(i)}
         return super.onOptionsItemSelected(item)
-    }
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.main_menu, menu)
-        return super.onCreateOptionsMenu(menu)
     }
     override fun onStart() {
         super.onStart()

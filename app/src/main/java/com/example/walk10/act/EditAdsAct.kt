@@ -1,13 +1,11 @@
 package com.example.walk10.act
 
-import android.R
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.sax.RootElement
-import android.view.LayoutInflater
 import android.view.View
+import android.widget.Toast
 
 import androidx.appcompat.app.AppCompatActivity
+import com.example.walk10.R
 import com.example.walk10.databinding.ActivityEditAdsBinding
 import com.example.walk10.dialogs.DialogSpinnerHelper
 import com.example.walk10.utils.CityHelper
@@ -18,11 +16,12 @@ class EditAdsAct :AppCompatActivity() {
 
     private val dialog =DialogSpinnerHelper()
 
-    lateinit var rootElement: ActivityEditAdsBinding
+     lateinit var rootElement: ActivityEditAdsBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         rootElement = ActivityEditAdsBinding.inflate(layoutInflater)
-        setContentView(rootElement.root)
+        val view = rootElement.root
+        setContentView(view)
         init()
 
 
@@ -33,8 +32,21 @@ class EditAdsAct :AppCompatActivity() {
 
     }
     //OnClicks
-    fun onClickSelectCity(view : View){
+    fun onClickSelectCity(view: View) {
         val listCity = CityHelper.getAllCities(this)
-        dialog.showSpinnerDialog(this, listCity)
+        dialog.showSpinnerDialog(this, listCity, rootElement.tvCity)
+        if(rootElement.tvCity2.text.toString()==getString(R.string.select_city2)){
+            rootElement.tvCity2.text = getString(R.string.select_city2)
+        }
+    }
+    fun onClickSelectCity2(view: View) {
+        val selectedCity2 = rootElement.tvCity.text.toString()
+        if (selectedCity2 != getString(R.string.select_city)){
+        val listCity2 = CityHelper.getAllCities2(selectedCity2,this)
+        dialog.showSpinnerDialog(this, listCity2, rootElement.tvCity2)
+    } else {
+        Toast.makeText(this, "No country selected", Toast.LENGTH_LONG).show()
+    }
+
     }
 }
