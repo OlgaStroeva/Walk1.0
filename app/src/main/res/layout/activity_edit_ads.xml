@@ -152,7 +152,7 @@
                         android:layout_marginBottom="5dp"
                         android:ems="10"
                         android:hint="@string/adress_hint"
-                        android:inputType="textShortMessage|none|number"
+                        android:inputType="textLongMessage|none"
                         android:minHeight="48dp"
                         android:padding="10dp"
                         android:textColorHighlight="@color/teal_700" />
@@ -254,7 +254,7 @@
                         android:layout_marginBottom="5dp"
                         android:ems="10"
                         android:hint="@string/description_hint"
-                        android:inputType="textLongMessage|none|number"
+                        android:inputType="textLongMessage|none"
                         android:minHeight="48dp"
                         android:padding="10dp"
                         android:textColorHighlight="@color/teal_700" />

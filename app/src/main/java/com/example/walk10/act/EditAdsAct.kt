@@ -38,7 +38,7 @@ class EditAdsAct :AppCompatActivity() {
     }
 
     fun onClickSelectCity(view: View) {
-        val selectedCity2 = rootElement.tvCity.text.toString()
+        val selectedCity2 = "Россия"
         if (selectedCity2 != getString(R.string.select_city)){
         val listCity2 = CityHelper.getAllCities2(selectedCity2,this)
         dialog.showSpinnerDialog(this, listCity2, rootElement.tvCity)
