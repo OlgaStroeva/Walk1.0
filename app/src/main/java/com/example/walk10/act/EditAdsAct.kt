@@ -11,11 +11,13 @@ import com.example.walk10.databinding.ActivityEditAdsBinding
 import com.example.walk10.dialogs.DialogSpinnerHelper
 import com.example.walk10.utils.CityHelper
 import android.content.Intent
+import com.example.walk10.data.Ad
 import com.example.walk10.dataVas.dbManager
 
 class EditAdsAct :AppCompatActivity() {
     private val dialog = DialogSpinnerHelper()
     lateinit var rootElement: ActivityEditAdsBinding
+    val dbManager = dbManager()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         rootElement = ActivityEditAdsBinding.inflate(layoutInflater)
@@ -29,8 +31,21 @@ class EditAdsAct :AppCompatActivity() {
     //OnClicks
 
     fun onClickPublish(view: View){
-        val dbManager = dbManager()
-        dbManager.publishAd()
+        dbManager.publishAd(fillAd())
+    }
+    private  fun fillAd() : Ad{
+        val ad: Ad
+        rootElement.apply {
+            ad = Ad(tvCity.text.toString(),
+                editTextTextTel.text.toString(),
+                editTextTextAdress.text.toString(),
+                tvCat.text.toString(),
+                tvAnimal.text.toString(),
+                editTextTextDescription.text.toString(),
+                dbManager.db.push().key
+            )
+            return ad
+        }
     }
 
     fun onClickSelectCat(view: View) {
