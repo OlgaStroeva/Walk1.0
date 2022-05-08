@@ -13,6 +13,8 @@ import com.example.walk10.utils.CityHelper
 import android.content.Intent
 import com.example.walk10.data.Ad
 import com.example.walk10.dataVas.dbManager
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 
 class EditAdsAct :AppCompatActivity() {
     private val dialog = DialogSpinnerHelper()
