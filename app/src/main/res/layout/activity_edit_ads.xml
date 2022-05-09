@@ -43,8 +43,8 @@
 
                     <ImageButton
                         android:id="@+id/imageButton2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="32dp"
+                        android:layout_height="35dp"
                         android:layout_marginTop="6dp"
                         android:layout_marginEnd="7dp"
                         android:background="@android:drawable/ic_menu_edit"
@@ -52,7 +52,6 @@
                         android:minHeight="48dp"
                         app:layout_constraintEnd_toEndOf="@+id/vpimages"
                         app:layout_constraintTop_toTopOf="@+id/vpimages"
-                        app:srcCompat="@drawable/ic_new_adds"
                         tools:ignore="SpeakableTextPresentCheck" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -69,6 +68,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="5dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -78,7 +79,7 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:text="@string/city"
-                        android:textColor="@color/design_default_color_secondary_variant"
+                        android:textColor="@color/teal_700"
                         android:textStyle="bold" />
 
                     <TextView
@@ -90,7 +91,7 @@
                         android:onClick="onClickSelectCity"
                         android:padding="10dp"
                         android:text="@string/select_city"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/light" />
 
                     <LinearLayout
                         android:id="@+id/divider1"
@@ -110,7 +111,7 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:text="@string/tel"
-                        android:textColor="@color/design_default_color_secondary_variant"
+                        android:textColor="@color/teal_700"
                         android:textStyle="bold" />
 
                     <EditText
@@ -142,7 +143,7 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:text="@string/adress"
-                        android:textColor="@color/design_default_color_secondary_variant"
+                        android:textColor="@color/teal_700"
                         android:textStyle="bold" />
 
                     <EditText
@@ -171,6 +172,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="5dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -180,7 +183,7 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:text="@string/category"
-                        android:textColor="@color/design_default_color_secondary_variant"
+                        android:textColor="@color/teal_700"
                         android:textStyle="bold" />
 
                     <TextView
@@ -192,7 +195,7 @@
                         android:onClick="onClickSelectCat"
                         android:padding="10dp"
                         android:text="@string/select_category"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/light" />
 
                     <LinearLayout
                         android:id="@+id/divider01"
@@ -212,7 +215,7 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:text="@string/Animal"
-                        android:textColor="@color/design_default_color_secondary_variant"
+                        android:textColor="@color/teal_700"
                         android:textStyle="bold" />
 
                     <TextView
@@ -224,7 +227,7 @@
                         android:onClick="onClickSelectAnimal"
                         android:padding="10dp"
                         android:text="@string/select_animal"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/light" />
 
                     <LinearLayout
                         android:id="@+id/divider02"
@@ -244,7 +247,7 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:text="@string/description"
-                        android:textColor="@color/design_default_color_secondary_variant"
+                        android:textColor="@color/teal_700"
                         android:textStyle="bold" />
 
                     <EditText
@@ -267,8 +270,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:background="@color/white"
-                android:backgroundTint="@color/white"
+                android:backgroundTint="@color/teal_700"
                 android:onClick="onClickPublish"
                 android:text="@string/publish"
                 android:textColor="@color/white" />
