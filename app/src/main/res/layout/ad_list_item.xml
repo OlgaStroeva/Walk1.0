@@ -30,21 +30,23 @@
                 android:layout_marginTop="10dp"
                 android:text="TextView"
                 android:textColor="@color/black"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/mainImage"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="5dp"
+                android:background="@color/back"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvTitle"
-                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+                tools:srcCompat="@drawable/gallery_icon_icons_com_54177" />
 
             <TextView
                 android:id="@+id/tvDescription"
@@ -73,12 +75,16 @@
                         android:id="@+id/imViewsCounter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:tint="@color/light"
                         app:srcCompat="@drawable/ic_eye" />
 
                     <TextView
                         android:id="@+id/tvViewsCounter"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginEnd="10dp"
                         android:gravity="center_vertical"
                         android:text="TextView" />
 
@@ -86,13 +92,16 @@
                         android:id="@+id/ibFaw"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
                         android:background="@android:color/transparent"
+                        android:tint="@color/light"
                         app:srcCompat="@drawable/ic_faw_normal" />
 
                     <TextView
                         android:id="@+id/tvFaw"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:layout_marginLeft="2dp"
                         android:gravity="center_vertical"
                         android:text="TextView" />
                 </LinearLayout>
@@ -108,15 +117,19 @@
                         android:id="@+id/ibEditAd"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
                         android:layout_marginEnd="16dp"
                         android:background="@android:color/transparent"
+                        android:tint="@color/light"
                         app:srcCompat="@drawable/ic_pencil" />
 
                     <ImageButton
                         android:id="@+id/ibDeleteAd"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
                         android:background="@android:color/transparent"
+                        android:tint="@color/light"
                         app:srcCompat="@drawable/ic_delete" />
 
                 </LinearLayout>
