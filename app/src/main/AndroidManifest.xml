@@ -4,6 +4,7 @@
     package="com.example.walk10">
 
     <application
+        tools:replace="android:theme"
         android:allowBackup="true"
         android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"

@@ -50,6 +50,7 @@
                         android:background="@android:drawable/ic_menu_edit"
                         android:minWidth="48dp"
                         android:minHeight="48dp"
+                        android:onClick="onClickGetImages"
                         app:layout_constraintEnd_toEndOf="@+id/vpimages"
                         app:layout_constraintTop_toTopOf="@+id/vpimages"
                         tools:ignore="SpeakableTextPresentCheck" />

@@ -11,15 +11,19 @@ import com.example.walk10.databinding.ActivityEditAdsBinding
 import com.example.walk10.dialogs.DialogSpinnerHelper
 import com.example.walk10.utils.CityHelper
 import android.content.Intent
+import android.content.pm.PackageManager
 import com.example.walk10.data.Ad
 import com.example.walk10.dataVas.dbManager
+import com.example.walk10.utils.ImagePicker
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
 class EditAdsAct :AppCompatActivity() {
     private val dialog = DialogSpinnerHelper()
+    private val isImagePermissionGranted=false
     lateinit var rootElement: ActivityEditAdsBinding
     val dbManager = dbManager()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         rootElement = ActivityEditAdsBinding.inflate(layoutInflater)
@@ -27,6 +31,42 @@ class EditAdsAct :AppCompatActivity() {
         setContentView(view)
         init()
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == RESULT_OK && requestCode == ImagePicker.REQUEST_CODE_GET_IMAGES) {
+            if(data!=null){
+            val returnValue = data.getStringArrayListExtra(Pix. IMAGE_RESULTS)
+                Log.d("MyLog","Image :${returnValue?.get(0)}")
+                Log.d("MyLog","Image:${returnValue?.get(1)}")
+                Log.d("MyLog","Image:${returnValue?.get(2)}")
+        }}
+    }
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        when (requestCode) {
+            PermUtil.REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS -> {
+
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    ImagePicker.getImages(this)
+                } else {
+                    isImagePermissionGranted=false
+                    Toast.makeText(
+                        this,
+                        "Approve permissions to open Pix ImagePicker”,
+                                Toast . LENGTH_LONG
+                    ).show()
+                }
+                return
+            }}}
+
+
 
     private fun init(){
     }
@@ -69,4 +109,8 @@ class EditAdsAct :AppCompatActivity() {
         Toast.makeText(this, "No city selected", Toast.LENGTH_LONG).show()
     }
     }
+    fun onClickGetImages(view: View) {
+        ImagePicker.getImages(this)
+    }
+
 }
