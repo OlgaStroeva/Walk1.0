@@ -37,8 +37,6 @@ class ImageListFrag(private val fragCloseInterface : FragmentCloseInterface, pri
     private var addImageItem: MenuItem? = null
     private lateinit var binding: ListImageFragBinding
 
-    //private var activity =
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -73,11 +71,6 @@ class ImageListFrag(private val fragCloseInterface : FragmentCloseInterface, pri
         job?.cancel()
     }
 
-    /*override*/ fun onClose(){
-        //super.onClose()
-        activity?.supportFragmentManager?.beginTransaction()?.remove(this@ImageListFrag)?.commit()
-    }
-
     fun resizeSelectedImages(newList: ArrayList<Uri>?, needClear: Boolean, activity : Activity){
         job = CoroutineScope(Dispatchers.Main).launch {
             val dialog = progressDialog.createProgressDialog(activity)
@@ -97,9 +90,9 @@ class ImageListFrag(private val fragCloseInterface : FragmentCloseInterface, pri
         val addImageItem = tb.menu.findItem(R.id.id_add_image)
             if(adapter.mainArray.size > 2) addImageItem?.isVisible = false
 
-        /*tb.setNavigationOnClickListener{
-            showInterAd()
-        }*/
+        tb.setNavigationOnClickListener{
+            activity?.supportFragmentManager?.beginTransaction()?.remove(this@ImageListFrag)?.commit()
+        }
 
         deleteItem.setOnMenuItemClickListener {
             adapter.updateAdapter(ArrayList(), true)
