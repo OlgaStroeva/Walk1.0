@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
@@ -33,11 +34,13 @@ class EditAdsAct :AppCompatActivity(), FragmentCloseInterface {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        rootElement = ActivityEditAdsBinding.inflate(layoutInflater)
+        rootElement = ActivityEditAdsBinding.inflate(LayoutInflater)
         val view = rootElement.root
         setContentView(view)
         init()
     }
+
+
 
     private fun checkEditState(){
         isEditState = isEditState()
@@ -74,6 +77,17 @@ class EditAdsAct :AppCompatActivity(), FragmentCloseInterface {
         } else {
             dbManager.publishAd(adTemp, onPublishFinish())
         }
+
+    }
+    private fun onPublishFinish(): dbManager.FinishWorkListener{
+        return object :dbManager.FinishWorkListener{
+            override fun onFinish(){
+                finish()
+
+            }
+
+        }
+
     }
     private  fun fillAd() : Ad{
         val ad: Ad

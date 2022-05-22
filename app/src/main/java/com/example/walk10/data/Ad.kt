@@ -1,5 +1,7 @@
 package com.example.walk10.data
 
+import java.io.Serializable
+
 class Ad (
     val city: String? = null,
     val tel: String? = null,
@@ -9,9 +11,4 @@ class Ad (
     val description: String? = null,
     val key: String? = null,
     val uid: String? = null
-) {
-
-    fun copy(key: String?): Ad {
-
-    }
-}
+)  :Serializable

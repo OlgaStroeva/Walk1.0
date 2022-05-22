@@ -27,9 +27,11 @@ class AdsRcAdapter(val act : MainActivity) : RecyclerView.Adapter<AdsRcAdapter.A
         return adArray.size
     }
     fun updateAdapter(newList: List<Ad>){
+        val diffResult=DiffUtil.calculateDiff(DiffUtilHelper(adArray, newList))
+        diffResult.dispatchUpdatesTo(this)
         adArray.clear()
         adArray.addAll(newList)
-        notifyDataSetChanged()
+
     }
 
     class AdHolder(val binding: AdListItemBinding, val act: MainActivity) : RecyclerView.ViewHolder(binding.root) {
@@ -38,12 +40,16 @@ class AdsRcAdapter(val act : MainActivity) : RecyclerView.Adapter<AdsRcAdapter.A
                 tvDescription.text=ad.category
                 showEditPanel(isOwner(ad))
                 ibEditAd.setOnClickListener()
+                ibDeleteAd.setOnClickListener{}
+                   act.onDeleteItem(ad)
         }
         private fun onClickEdit(ad: Ad): View.OnClickListener{
             return View.OnClickListener {
                 val editIntent = Intent(act,EditAdsAct::class.java).apply {
-                    putExtra("edit_intent")
+                    putExtra(MainActivity.EDIT_STATE, true)
+                    putExtra(MainActivity.ADS_DATA,ad)
                 }
+                act.startActivity(editIntent)
             }}
 
         private fun isOwner( ad: Ad) : Boolean{
@@ -57,6 +63,10 @@ class AdsRcAdapter(val act : MainActivity) : RecyclerView.Adapter<AdsRcAdapter.A
                 binding.editPanel.visibility = View.GONE
             }
         }
+
+    }
+    interface DeleteItemListener{
+        fun onDeleteItem(ad: Ad)
 
     }
 }
