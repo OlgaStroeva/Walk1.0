@@ -12,7 +12,8 @@
     <string name="open">Open</string>
     <string name="close">Close</string>
     <string name="not_reg">Войдите в аккаунт или зарегистрируйтесь</string>
-
+    <string name="my_ad">Объявления</string>
+    <string name="def">Разное</string>
     <!-- Sign dialog -->
     <string name="email_hint">Email</string>
     <string name="password_hint">Password</string>
@@ -40,4 +41,7 @@
     <string name="publish">Опубликовать</string>
     <string name="delete">Delete</string>
     <string name="add">Add</string>
+
+
+
 </resources>

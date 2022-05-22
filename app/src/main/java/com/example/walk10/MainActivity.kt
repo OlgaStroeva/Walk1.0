@@ -68,9 +68,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                         val i = Intent(this@MainActivity, EditAdsAct::class.java)
                         startActivity(i)
                 }
-                R.id.id_my_ads -> {}
+                R.id.id_my_ads -> {
+                    firebaseViewModel.loadMyAds()
+                    mainContent.toolbar.title = getString(R.string.my_ad)
+                }
                 R.id.id_favs -> {}
-                R.id.id_home -> {}
+                R.id.id_home -> {
+                    firebaseViewModel.loadAllAds()
+                    mainContent.toolbar.title = getString(R.string.def)
+                }
             }
         }
     }
