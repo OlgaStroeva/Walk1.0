@@ -7,5 +7,11 @@ class Ad (
     val category: String? = null,
     val animal: String? = null,
     val description: String? = null,
-    val key: String? = null
-)
+    val key: String? = null,
+    val uid: String? = null
+) {
+
+    fun copy(key: String?): Ad {
+
+    }
+}

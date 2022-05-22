@@ -1,35 +1,33 @@
 package com.example.walk10
 
-import android.content.ClipData
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-
-import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.walk10.act.EditAdsAct
+import com.example.walk10.adapters.AdsRcAdapter
 import com.example.walk10.dataVas.dbManager
-import com.example.walk10.databinding.ActivityEditAdsBinding
 import com.example.walk10.databinding.ActivityMainBinding
 import com.example.walk10.dialoghelper.DialogConst
 import com.example.walk10.dialoghelper.DialogHelper
-
 import com.google.android.material.navigation.NavigationView
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var tvAccount: TextView
     private lateinit var rootElement:ActivityMainBinding
     private val dialogHelper = DialogHelper(this)
-    val mAuth = FirebaseAuth.getInstance()
+    val mAuth = Firebase.auth
     val dbManager = dbManager()
+    val adapter = AdsRcAdapter(mAuth)
+    private val firebaseViewModel : FirebaseViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,20 +35,18 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val view = rootElement.root
         setContentView(view)
         init()
-        dbManager.readDataFromDb()
+        initRecyclerView()
+        //initViewModel()
+        firebaseViewModel.loadAllAds()
+        //dbManager.readDataFromDb() нет в конечных файлах (но скорее в конченных)
+        bottomMenuOnClick()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.main_menu, menu)
-        return super.onCreateOptionsMenu(menu)
+    override fun onResume() {
+        super.onResume()
+        rootElement.mainContent.bNavView.selectedItemId = R.id.id_home
     }
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId == R.id.id_new_ads){
-            val i = Intent(this, EditAdsAct::class.java)
-            startActivity(i)
-        }
-        return super.onOptionsItemSelected(item)
-    }
+
     override fun onStart() {
         super.onStart()
         uiUpdate(mAuth.currentUser)
@@ -63,6 +59,27 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
         rootElement.navView.setNavigationItemSelectedListener (this)
         tvAccount = rootElement.navView.getHeaderView(0).findViewById(R.id.accountEmail)
+    }
+
+    private fun bottomMenuOnClick() = with(rootElement){
+        mainContent.bNavView.setOnNavigationItemReselectedListener{ item ->
+            when(item.itemId){
+                R.id.id_new_ad -> {
+                        val i = Intent(this@MainActivity, EditAdsAct::class.java)
+                        startActivity(i)
+                }
+                R.id.id_my_ads -> {}
+                R.id.id_favs -> {}
+                R.id.id_home -> {}
+            }
+        }
+    }
+
+    private fun initRecyclerView(){
+        rootElement.apply {
+            mainContent.rcView.layoutManager = LinearLayoutManager(this@MainActivity)
+            mainContent.rcView.adapter = adapter
+        }
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {

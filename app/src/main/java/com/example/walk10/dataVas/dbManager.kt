@@ -1,6 +1,5 @@
 package com.example.walk10.dataVas
 
-import android.util.Log
 import com.example.walk10.data.Ad
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Walk 1.0</string>
+    <string name="app_name">Лапушки</string>
     <!-- Menu strings -->
     <string name="ad">Объявления</string>
     <string name="ad_lost">Потерянные</string>
@@ -38,4 +38,6 @@
     <string name="description">Описание</string>
     <string name="description_hint">Описание*</string>
     <string name="publish">Опубликовать</string>
+    <string name="delete">Delete</string>
+    <string name="add">Add</string>
 </resources>

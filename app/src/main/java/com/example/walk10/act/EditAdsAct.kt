@@ -1,28 +1,35 @@
 package com.example.walk10.act
 
-import android.content.ClipData
+import android.content.Intent
+import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-
+import androidx.activity.result.ActivityResultLauncher
 import androidx.appcompat.app.AppCompatActivity
+import com.example.walk10.MainActivity
 import com.example.walk10.R
-import com.example.walk10.databinding.ActivityEditAdsBinding
-import com.example.walk10.dialogs.DialogSpinnerHelper
-import com.example.walk10.utils.CityHelper
-import android.content.Intent
-import android.content.pm.PackageManager
+import com.example.walk10.adapters.ImageAdapter
 import com.example.walk10.data.Ad
 import com.example.walk10.dataVas.dbManager
+import com.example.walk10.databinding.ActivityEditAdsBinding
+import com.example.walk10.dialogs.DialogSpinnerHelper
+import com.example.walk10.frag.FragmentCloseInterface
+import com.example.walk10.frag.ImageListFrag
+import com.example.walk10.utils.CityHelper
 import com.example.walk10.utils.ImagePicker
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
 
-class EditAdsAct :AppCompatActivity() {
+class EditAdsAct :AppCompatActivity(), FragmentCloseInterface {
+    var chooseImageFrag : ImageListFrag? = null
     private val dialog = DialogSpinnerHelper()
-    private val isImagePermissionGranted=false
     lateinit var rootElement: ActivityEditAdsBinding
-    val dbManager = dbManager()
+    private val dbManager = dbManager()
+    lateinit var imageAdapter: ImageAdapter
+    var launcherMultiSelectImage: ActivityResultLauncher<Intent>? = null
+    var editImagePos = 0
+    private var isEditState = false
+    private var ad: Ad? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,48 +39,41 @@ class EditAdsAct :AppCompatActivity() {
         init()
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
+    private fun checkEditState(){
+        isEditState = isEditState()
+        if(isEditState){
+            ad = intent.getSerializableExtra(MainActivity.ADS_DATA) as Ad
+            if(ad != null) fillView(ad!!)
+        }
     }
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == RESULT_OK && requestCode == ImagePicker.REQUEST_CODE_GET_IMAGES) {
-            if(data!=null){
-            val returnValue = data.getStringArrayListExtra(Pix. IMAGE_RESULTS)
-                Log.d("MyLog","Image :${returnValue?.get(0)}")
-                Log.d("MyLog","Image:${returnValue?.get(1)}")
-                Log.d("MyLog","Image:${returnValue?.get(2)}")
-        }}
+
+    private fun isEditState(): Boolean {
+        return intent.getBooleanExtra(MainActivity.EDIT_STATE, false)
     }
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        when (requestCode) {
-            PermUtil.REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS -> {
 
-                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    ImagePicker.getImages(this)
-                } else {
-                    isImagePermissionGranted=false
-                    Toast.makeText(
-                        this,
-                        "Approve permissions to open Pix ImagePicker”,
-                                Toast . LENGTH_LONG
-                    ).show()
-                }
-                return
-            }}}
-
-
+    private fun fillView(ad: Ad) = with(rootElement){
+        tvCity.text = ad.city
+        editTextTextTel.setText(ad.tel)
+        editTextTextAdress.setText(ad.adress)
+        tvCat.text = ad.category
+        tvAnimal.text = ad.animal
+        editTextTextDescription.setText(ad.description)
+    }
 
     private fun init(){
+        imageAdapter = ImageAdapter()
+        rootElement.vpimages.adapter = imageAdapter
     }
+
     //OnClicks
 
     fun onClickPublish(view: View){
-        dbManager.publishAd(fillAd())
+        val adTemp = fillAd()
+        if(isEditState){
+            dbManager.publishAd(adTemp.copy(key = ad?.key), onPublishFinish())
+        } else {
+            dbManager.publishAd(adTemp, onPublishFinish())
+        }
     }
     private  fun fillAd() : Ad{
         val ad: Ad
@@ -84,7 +84,7 @@ class EditAdsAct :AppCompatActivity() {
                 tvCat.text.toString(),
                 tvAnimal.text.toString(),
                 editTextTextDescription.text.toString(),
-                dbManager.db.push().key
+                dbManager.db.push().key, dbManager.auth.uid//, "0"
             )
             return ad
         }
@@ -110,7 +110,26 @@ class EditAdsAct :AppCompatActivity() {
     }
     }
     fun onClickGetImages(view: View) {
-        ImagePicker.getImages(this)
+        if(imageAdapter.mainArray.size == 0){
+            ImagePicker.getMultiImages(this, 3)
+        } else {
+            openChooseImageFrag(null)
+            chooseImageFrag?.updateAdapterFromEdit(imageAdapter.mainArray)
+        }
     }
 
+    override fun onFragClose(list: ArrayList<Bitmap>) {
+        rootElement.ScrollViewMain.visibility = View.VISIBLE
+        imageAdapter.update(list)
+        chooseImageFrag = null
+    }
+
+    fun openChooseImageFrag(newList: ArrayList<Uri>?){
+        chooseImageFrag = ImageListFrag(this, newList)
+        if(newList != null) chooseImageFrag?.resizeSelectedImages(newList as ArrayList<Uri>?, true, this)
+        rootElement.scroolViewMain.visibility = View.GONE
+        val fm = supportFragmentManager.beginTransaction()
+        fm.replace(R.id.place_holder, chooseImageFrag!!)
+        fm.commit()
+    }
 }
