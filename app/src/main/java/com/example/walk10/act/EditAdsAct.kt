@@ -3,11 +3,12 @@ package com.example.walk10.act
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.walk10.MainActivity
 import com.example.walk10.R
@@ -20,6 +21,7 @@ import com.example.walk10.frag.FragmentCloseInterface
 import com.example.walk10.frag.ImageListFrag
 import com.example.walk10.utils.CityHelper
 import com.example.walk10.utils.ImagePicker
+import java.time.LocalDateTime
 
 class EditAdsAct :AppCompatActivity(), FragmentCloseInterface {
     var chooseImageFrag : ImageListFrag? = null
@@ -34,13 +36,11 @@ class EditAdsAct :AppCompatActivity(), FragmentCloseInterface {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        rootElement = ActivityEditAdsBinding.inflate(LayoutInflater)
+        rootElement = ActivityEditAdsBinding.inflate(layoutInflater)
         val view = rootElement.root
         setContentView(view)
         init()
     }
-
-
 
     private fun checkEditState(){
         isEditState = isEditState()
@@ -70,6 +70,7 @@ class EditAdsAct :AppCompatActivity(), FragmentCloseInterface {
 
     //OnClicks
 
+    @RequiresApi(Build.VERSION_CODES.O)
     fun onClickPublish(view: View){
         val adTemp = fillAd()
         if(isEditState){
@@ -89,8 +90,10 @@ class EditAdsAct :AppCompatActivity(), FragmentCloseInterface {
         }
 
     }
+    @RequiresApi(Build.VERSION_CODES.O)
     private  fun fillAd() : Ad{
         val ad: Ad
+        val current = LocalDateTime.now()
         rootElement.apply {
             ad = Ad(tvCity.text.toString(),
                 editTextTextTel.text.toString(),
@@ -98,7 +101,8 @@ class EditAdsAct :AppCompatActivity(), FragmentCloseInterface {
                 tvCat.text.toString(),
                 tvAnimal.text.toString(),
                 editTextTextDescription.text.toString(),
-                dbManager.db.push().key, dbManager.auth.uid//, "0"
+                current.toString(),
+                dbManager.db.push().key, dbManager.auth.uid
             )
             return ad
         }
@@ -133,7 +137,7 @@ class EditAdsAct :AppCompatActivity(), FragmentCloseInterface {
     }
 
     override fun onFragClose(list: ArrayList<Bitmap>) {
-        rootElement.ScrollViewMain.visibility = View.VISIBLE
+        rootElement.scrollViewMain.visibility = View.VISIBLE
         imageAdapter.update(list)
         chooseImageFrag = null
     }
@@ -141,7 +145,7 @@ class EditAdsAct :AppCompatActivity(), FragmentCloseInterface {
     fun openChooseImageFrag(newList: ArrayList<Uri>?){
         chooseImageFrag = ImageListFrag(this, newList)
         if(newList != null) chooseImageFrag?.resizeSelectedImages(newList as ArrayList<Uri>?, true, this)
-        rootElement.scroolViewMain.visibility = View.GONE
+        rootElement.scrollViewMain.visibility = View.GONE
         val fm = supportFragmentManager.beginTransaction()
         fm.replace(R.id.place_holder, chooseImageFrag!!)
         fm.commit()

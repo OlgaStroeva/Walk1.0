@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.ProgressBar
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
@@ -28,8 +27,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
-class ImageListFrag(private val fragCloseInterface : FragmentCloseInterface, private val newList : ArrayList<Uri>?
-) : Fragment(), AdapterCallback {
+class ImageListFrag(private val fragCloseInterface : FragmentCloseInterface,
+                    private val newList : ArrayList<Uri>?)
+                    : Fragment(), AdapterCallback {
     private val adapter = SelectImageRvAdapter(this)
     private val dragCallback = ItemTTouchMoveCallback(adapter)
     private val touchHelper = ItemTouchHelper(dragCallback)
@@ -52,7 +52,7 @@ class ImageListFrag(private val fragCloseInterface : FragmentCloseInterface, pri
         setUpToolbar()
         binding.apply {
         touchHelper.attachToRecyclerView(rcViewSelectImage)
-        rcViewSelectImage.LayoutManager = LinearLayoutManager(activity)
+        rcViewSelectImage.layoutManager = LinearLayoutManager(activity)
         rcViewSelectImage.adapter = adapter
         }
     }

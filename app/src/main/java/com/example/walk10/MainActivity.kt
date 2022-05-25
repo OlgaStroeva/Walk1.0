@@ -3,8 +3,10 @@ package com.example.walk10
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
@@ -12,23 +14,22 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.walk10.act.EditAdsAct
 import com.example.walk10.adapters.AdsRcAdapter
 import com.example.walk10.data.Ad
-import com.example.walk10.dataVas.dbManager
 import com.example.walk10.databinding.ActivityMainBinding
 import com.example.walk10.dialoghelper.DialogConst
 import com.example.walk10.dialoghelper.DialogHelper
+import com.example.walk10.viewmodle.FirebaseViewModle
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, AdsRcAdapter.DeleteItemListener {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, AdsRcAdapter.Listener {
     private lateinit var tvAccount: TextView
     private lateinit var rootElement:ActivityMainBinding
     private val dialogHelper = DialogHelper(this)
     val mAuth = Firebase.auth
-    val dbManager = dbManager()
-    val adapter = AdsRcAdapter(mAuth)
-    private val firebaseViewModel : FirebaseViewModel by viewModels()
+    val adapter = AdsRcAdapter(this)
+    private val firebaseViewModel : FirebaseViewModle by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,9 +38,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setContentView(view)
         init()
         initRecyclerView()
-        //initViewModel()
+        initViewModel()
         firebaseViewModel.loadAllAds()
-        //dbManager.readDataFromDb() нет в конечных файлах (но скорее в конченных)
         bottomMenuOnClick()
     }
 
@@ -54,7 +54,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
     private fun initViewModel(){
         firebaseViewModel.liveAdsData.observe(this) {
-            adapter.updateAdapter(it)
+            if (it != null) {
+                adapter.updateAdapter(it)
+                rootElement.mainContent.tvEmpty.visibility = if(it.isEmpty()) View.VISIBLE else View.GONE
+            }
         }
     }
 
@@ -78,7 +81,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     firebaseViewModel.loadMyAds()
                     mainContent.toolbar.title = getString(R.string.my_ad)
                 }
-                R.id.id_favs -> {}
+                R.id.id_favs -> {
+                    firebaseViewModel.loadMyFavs()
+                }
                 R.id.id_home -> {
                     firebaseViewModel.loadAllAds()
                     mainContent.toolbar.title = getString(R.string.def)
@@ -141,6 +146,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onDeleteItem(ad: Ad) {
         firebaseViewModel.deleteItem(ad)
 
+    }
+
+    override fun onAdViewed(ad: Ad) {
+        firebaseViewModel.adViewed(ad)
+    }
+
+    override fun onFavClicked(ad: Ad) {
+        firebaseViewModel.onFavClick(ad)
     }
 
 }

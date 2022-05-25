@@ -4,12 +4,13 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.walk10.MainActivity
+import com.example.walk10.R
 import com.example.walk10.act.EditAdsAct
 import com.example.walk10.data.Ad
 import com.example.walk10.databinding.AdListItemBinding
-import com.google.firebase.auth.FirebaseAuth
 
 class AdsRcAdapter(val act : MainActivity) : RecyclerView.Adapter<AdsRcAdapter.AdHolder> (){
     val adArray = ArrayList<Ad>()
@@ -27,7 +28,7 @@ class AdsRcAdapter(val act : MainActivity) : RecyclerView.Adapter<AdsRcAdapter.A
         return adArray.size
     }
     fun updateAdapter(newList: List<Ad>){
-        val diffResult=DiffUtil.calculateDiff(DiffUtilHelper(adArray, newList))
+        val diffResult= DiffUtil.calculateDiff(DiffUtilHelper(adArray, newList))
         diffResult.dispatchUpdatesTo(this)
         adArray.clear()
         adArray.addAll(newList)
@@ -35,14 +36,30 @@ class AdsRcAdapter(val act : MainActivity) : RecyclerView.Adapter<AdsRcAdapter.A
     }
 
     class AdHolder(val binding: AdListItemBinding, val act: MainActivity) : RecyclerView.ViewHolder(binding.root) {
+
         fun setData(ad: Ad) =with(binding) {
                 //название объявления
                 tvDescription.text=ad.category
+                Date.text = ad.date
+                tvViewsCounter.text = ad.viewCounter
+            if(ad.isFav){
+                ibFaw.setImageResource(R.drawable.ic_faw_pressed)
+            } else {
+                ibFaw.setImageResource(R.drawable.ic_faw_normal)
+            }
                 showEditPanel(isOwner(ad))
-                ibEditAd.setOnClickListener()
-                ibDeleteAd.setOnClickListener{}
-                   act.onDeleteItem(ad)
+                itemView.setOnClickListener{
+                    act.onAdViewed(ad)
+                }
+                ibEditAd.setOnClickListener(onClickEdit(ad))
+                ibDeleteAd.setOnClickListener {
+                    act.onDeleteItem(ad)
+                }
+                ibFaw.setOnClickListener{
+                    act.onFavClicked(ad)
+                }
         }
+
         private fun onClickEdit(ad: Ad): View.OnClickListener{
             return View.OnClickListener {
                 val editIntent = Intent(act,EditAdsAct::class.java).apply {
@@ -65,8 +82,9 @@ class AdsRcAdapter(val act : MainActivity) : RecyclerView.Adapter<AdsRcAdapter.A
         }
 
     }
-    interface DeleteItemListener{
+    interface Listener{
         fun onDeleteItem(ad: Ad)
-
+        fun onAdViewed(ad: Ad)
+        fun onFavClicked(ad : Ad)
     }
 }

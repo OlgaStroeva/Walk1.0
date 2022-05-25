@@ -6,7 +6,6 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.walk10.R
 import com.example.walk10.act.EditAdsAct
-import com.example.walk10.frag.ImageListFrag
 import io.ak1.pix.helpers.PixEventCallback
 import io.ak1.pix.helpers.addPixToActivity
 import io.ak1.pix.models.Mode
@@ -53,6 +52,7 @@ object ImagePicker {
                 PixEventCallback.Status.SUCCESS -> {
                     getMultiSelectedImages(edAct, result.data)
                     }
+                PixEventCallback.Status.BACK_PRESSED -> {}
                 }
             }
         }
@@ -66,6 +66,7 @@ object ImagePicker {
                     openChooseImageFrag(edAct, f!!)
                     edAct.chooseImageFrag?.updateAdapter(result.data as ArrayList<Uri>, edAct)
                 }
+                PixEventCallback.Status.BACK_PRESSED -> {}
             }
         }
     }
@@ -79,6 +80,7 @@ object ImagePicker {
                     openChooseImageFrag(edAct, f!!) //Разобраться с этой хуйнёй
                     singleImage(edAct, result.data[0])
                 }
+                PixEventCallback.Status.BACK_PRESSED -> {}
             }
         }
     }

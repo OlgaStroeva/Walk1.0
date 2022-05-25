@@ -4,8 +4,6 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.walk10.R
 import com.example.walk10.act.EditAdsAct
@@ -42,7 +40,9 @@ class SelectImageRvAdapter(val adapterCallback: AdapterCallback) : RecyclerView.
         notifyDataSetChanged()
     }
 
-    class ImageHolder(private val viewBinding : SelectImageFragItemBinding, val context : Context, val adapter : SelectImageRvAdapter) : RecyclerView.ViewHolder(viewBinding){
+    class ImageHolder(private val viewBinding : SelectImageFragItemBinding,
+                      val context : Context, val adapter : SelectImageRvAdapter)
+        : RecyclerView.ViewHolder(viewBinding.root){
 
         fun setData(bitmap: Bitmap){
             viewBinding.imEditImage.setOnClickListener {

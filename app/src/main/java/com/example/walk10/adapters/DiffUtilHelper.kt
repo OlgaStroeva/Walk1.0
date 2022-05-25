@@ -13,7 +13,7 @@ class DiffUtilHelper(val oldList: List<Ad>,val newList: List<Ad>): DiffUtil.Call
     override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
         return oldList[oldItemPosition].key == newList[newItemPosition].key
     }
-    override fun areContentTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+    override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
         return oldList[oldItemPosition] == newList[newItemPosition]
     }
 
