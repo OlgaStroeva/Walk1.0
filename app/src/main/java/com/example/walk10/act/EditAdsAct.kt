@@ -3,12 +3,10 @@ package com.example.walk10.act
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.walk10.MainActivity
 import com.example.walk10.R
@@ -70,7 +68,6 @@ class EditAdsAct :AppCompatActivity(), FragmentCloseInterface {
 
     //OnClicks
 
-    @RequiresApi(Build.VERSION_CODES.O)
     fun onClickPublish(view: View){
         val adTemp = fillAd()
         if(isEditState){
@@ -90,7 +87,6 @@ class EditAdsAct :AppCompatActivity(), FragmentCloseInterface {
         }
 
     }
-    @RequiresApi(Build.VERSION_CODES.O)
     private  fun fillAd() : Ad{
         val ad: Ad
         val current = LocalDateTime.now()

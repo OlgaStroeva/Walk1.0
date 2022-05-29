@@ -32,7 +32,6 @@ class AdsRcAdapter(val act : MainActivity) : RecyclerView.Adapter<AdsRcAdapter.A
         diffResult.dispatchUpdatesTo(this)
         adArray.clear()
         adArray.addAll(newList)
-
     }
 
     class AdHolder(val binding: AdListItemBinding, val act: MainActivity) : RecyclerView.ViewHolder(binding.root) {

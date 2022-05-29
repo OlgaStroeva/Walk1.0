@@ -88,8 +88,8 @@ class ImageListFrag(private val fragCloseInterface : FragmentCloseInterface,
         tb.inflateMenu(R.menu.menu_choose_image)
         val deleteItem = tb.menu.findItem(R.id.id_delete_image)
         val addImageItem = tb.menu.findItem(R.id.id_add_image)
-            if(adapter.mainArray.size > 2) addImageItem?.isVisible = false
-
+            if(newList!!.size > 2)
+                addImageItem?.isVisible = false
         tb.setNavigationOnClickListener{
             activity?.supportFragmentManager?.beginTransaction()?.remove(this@ImageListFrag)?.commit()
         }

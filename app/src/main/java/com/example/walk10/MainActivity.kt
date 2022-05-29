@@ -17,6 +17,7 @@ import com.example.walk10.data.Ad
 import com.example.walk10.databinding.ActivityMainBinding
 import com.example.walk10.dialoghelper.DialogConst
 import com.example.walk10.dialoghelper.DialogHelper
+import com.example.walk10.utils.AdapterScary
 import com.example.walk10.viewmodle.FirebaseViewModle
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseUser
@@ -37,9 +38,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val view = rootElement.root
         setContentView(view)
         init()
-        initRecyclerView()
-        initViewModel()
         firebaseViewModel.loadAllAds()
+        initViewModel()
+        initRecyclerView()
         bottomMenuOnClick()
     }
 
@@ -55,6 +56,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private fun initViewModel(){
         firebaseViewModel.liveAdsData.observe(this) {
             if (it != null) {
+                rootElement.mainContent.rcView.adapter = AdapterScary(it)
+                rootElement.mainContent.rcView.layoutManager = LinearLayoutManager(this)
+                rootElement.mainContent.rcView.setHasFixedSize(true)
                 adapter.updateAdapter(it)
                 rootElement.mainContent.tvEmpty.visibility = if(it.isEmpty()) View.VISIBLE else View.GONE
             }

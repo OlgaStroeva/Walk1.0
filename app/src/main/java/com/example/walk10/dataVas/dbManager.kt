@@ -11,6 +11,7 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
 class dbManager {
+    //val adArray = ArrayList<Ad>()
     val db = Firebase.database.getReference(MAIN_NODE)
     val auth = Firebase.auth
     fun publishAd(ad : Ad, finishListener: FinishWorkListener){
@@ -67,16 +68,17 @@ class dbManager {
                 for (item in snapshot.children){
                     var ad: Ad? = null
                     item.children.forEach {
-                        if(ad==null) it.child(AD_NODE).getValue(Ad::class.java)
+                        if(ad==null) ad = it.child(AD_NODE).getValue(Ad::class.java)
                     }
                     val infoItem = item.child(INFO_NODE).getValue(InfoItem::class.java)
 
                     ad?.viewCounter = infoItem?.viewsCounter ?: "0"
                     ad?.callCounter = infoItem?.callCounter ?: "0"
-                    if (ad!=null) adArray.add(ad)
+                    if (ad!=null) adArray.add(ad!!)
                 }
                 readDataCallback?.readData(adArray)
             }
+
             override fun onCancelled(error: DatabaseError) {
             }
         })
