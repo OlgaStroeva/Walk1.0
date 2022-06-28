@@ -5,25 +5,28 @@
 
     <item android:title="@string/ad">
         <menu>
+
             <item
-                android:title="@string/ad_lost"
-                android:id="@+id/id_lost_ads"
-            />
-            <item
-                android:title="@string/ad_found"
+                android:title="@string/vse"
                 android:id="@+id/id_found_ads"
+                />
+            <item
+                android:title="@string/my_ad"
+                android:id="@+id/id_account_ads"/>
+            <item
+                android:title="@string/fav"
+                android:id="@+id/id_lost_ads"
                 />
             <item
                 android:title="@string/create_ad"
                 android:id="@+id/id_create_ads"
                 />
+
         </menu>
 
     </item>
 
-    <item
-        android:title="@string/account"
-        android:id="@+id/id_account_ads"/>
+
     <item
         android:title="@string/register"
         android:id="@+id/id_register_ads"/>

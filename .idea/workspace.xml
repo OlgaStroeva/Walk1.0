@@ -13,18 +13,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c7c3128-7ecd-423c-b803-68a19e382939" name="Default Changelist" comment="AdsAdapter changed and almost everything work">
+    <list default="true" id="7c7c3128-7ecd-423c-b803-68a19e382939" name="Default Changelist" comment="Everything is good">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/act/EditAdsAct.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/act/EditAdsAct.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/data/Ad.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/data/Ad.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/dataVas/dbManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/dataVas/dbManager.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/frag/ImageListFrag.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/frag/ImageListFrag.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/utils/AdapterCallback.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/utils/AdapterCallback.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/utils/AdapterScary.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/utils/AdapterScary.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/utils/ImagePicker.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/utils/ImagePicker.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/utils/imageManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/utils/imageManager.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/viewmodle/FirebaseViewModle.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/viewmodle/FirebaseViewModle.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/my_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/my_menu.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +24,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ChangesViewManager" show_ignored="true" />
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[192.168.56.101:5555]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -321,7 +313,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656421625476</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Everything is good">
+      <created>1656446858781</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1656446858781</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -359,7 +358,8 @@
     <MESSAGE value="Contains errors, need to fix them and add some things for ads" />
     <MESSAGE value="." />
     <MESSAGE value="AdsAdapter changed and almost everything work" />
-    <option name="LAST_COMMIT_MESSAGE" value="AdsAdapter changed and almost everything work" />
+    <MESSAGE value="Everything is good" />
+    <option name="LAST_COMMIT_MESSAGE" value="Everything is good" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

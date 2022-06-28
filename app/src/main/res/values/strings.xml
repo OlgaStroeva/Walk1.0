@@ -4,6 +4,7 @@
     <string name="ad">Объявления</string>
     <string name="ad_lost">Потерянные</string>
     <string name="ad_found">Найденные</string>
+    <string name="fav">Избранное</string>
     <string name="create_ad">Создать объявление</string>
     <string name="account">Профиль</string>
     <string name="register">Регистрация</string>
@@ -12,8 +13,9 @@
     <string name="open">Open</string>
     <string name="close">Close</string>
     <string name="not_reg">Войдите в аккаунт или зарегистрируйтесь</string>
-    <string name="my_ad">Объявления</string>
+    <string name="my_ad">Мои объявления</string>
     <string name="def">Разное</string>
+    <string name="vse">Все объявления</string>
     <!-- Sign dialog -->
     <string name="email_hint">Email</string>
     <string name="password_hint">Password</string>
