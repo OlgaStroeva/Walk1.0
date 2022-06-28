@@ -13,6 +13,7 @@ data class Ad (
     val key: String? = null,
     val uid: String? = null,
     val isFav: Boolean = false,
+    var favCounter: String? = "0",
 
     var viewCounter: String = "0",
     var callCounter: String? = "0"

@@ -1,12 +1,10 @@
 package com.example.walk10.act
 
-import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.activity.result.ActivityResultLauncher
 import androidx.appcompat.app.AppCompatActivity
 import com.example.walk10.MainActivity
 import com.example.walk10.R
@@ -27,7 +25,6 @@ class EditAdsAct :AppCompatActivity(), FragmentCloseInterface {
     lateinit var rootElement: ActivityEditAdsBinding
     private val dbManager = dbManager()
     lateinit var imageAdapter: ImageAdapter
-    var launcherMultiSelectImage: ActivityResultLauncher<Intent>? = null
     var editImagePos = 0
     private var isEditState = false
     private var ad: Ad? = null
@@ -38,6 +35,7 @@ class EditAdsAct :AppCompatActivity(), FragmentCloseInterface {
         val view = rootElement.root
         setContentView(view)
         init()
+        checkEditState()
     }
 
     private fun checkEditState(){
@@ -139,11 +137,12 @@ class EditAdsAct :AppCompatActivity(), FragmentCloseInterface {
     }
 
     fun openChooseImageFrag(newList: ArrayList<Uri>?){
-        chooseImageFrag = ImageListFrag(this, newList)
+        chooseImageFrag = ImageListFrag(this)
         if(newList != null) chooseImageFrag?.resizeSelectedImages(newList as ArrayList<Uri>?, true, this)
         rootElement.scrollViewMain.visibility = View.GONE
         val fm = supportFragmentManager.beginTransaction()
         fm.replace(R.id.place_holder, chooseImageFrag!!)
+        //Возможно нужно вызывать update для изображений
         fm.commit()
     }
 }

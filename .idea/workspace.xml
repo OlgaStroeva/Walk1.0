@@ -13,7 +13,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c7c3128-7ecd-423c-b803-68a19e382939" name="Default Changelist" comment=".">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/act/EditAdsAct.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/act/EditAdsAct.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/adapters/ImageAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/adapters/ImageAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/data/Ad.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/data/Ad.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/dataVas/dbManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/dataVas/dbManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/frag/ImageListFrag.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/frag/ImageListFrag.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/frag/SelectImageRvAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/frag/SelectImageRvAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/utils/AdapterScary.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/utils/AdapterScary.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/utils/ImagePicker.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/utils/ImagePicker.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/utils/imageManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/utils/imageManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/ad_list_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/ad_list_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/list_image_frag.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/list_image_frag.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +34,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ChangesViewManager" show_ignored="true" />
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[192.168.56.101:5555]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -84,7 +97,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="add_unversioned_files" value="$PROJECT_DIR$/app/src/main/java/com/example/walk10/utils/ImagePicker1.kt&#10;/home/olga/AndroidStudioProjects/Walk1.0/app/src/main/res/menu/botton_main_menu.xml&#10;/home/olga/AndroidStudioProjects/Walk1.0/app/src/main/java/com/example/walk10/frag/BaseSelectImageFrag.kt" />
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/app/src/main/java/com/example/walk10/utils/ImagePicker1.kt&#10;/home/olga/AndroidStudioProjects/Walk1.0/app/src/main/res/menu/botton_main_menu.xml&#10;/home/olga/AndroidStudioProjects/Walk1.0/app/src/main/java/com/example/walk10/frag/BaseSelectImageFrag.kt&#10;/home/olga/AndroidStudioProjects/Walk1.0/app/build/outputs/apk/debug/app-debug.apk" />
     <property name="android-custom-view/home/olga/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.2.1/f0f93e67af3f7417bdd560d5142f6dec4fe629c3/recyclerview-1.2.1-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_RecyclerView_DIMENSIONS" value="1080&#10;1920" />
     <property name="android-custom-view/home/olga/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.2.1/f0f93e67af3f7417bdd560d5142f6dec4fe629c3/recyclerview-1.2.1-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_SELECTED" value="RecyclerView" />
     <property name="android-custom-view/home/olga/Android/Sdk/sources/android-31/android/view/View.java_SELECTED" value="View" />
@@ -296,7 +309,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653899714973</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary=".">
+      <created>1653899736652</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1653899736652</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -339,9 +359,59 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/walk10/frag/ImageListFrag.kt</url>
+          <line>88</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/walk10/frag/SelectImageRvAdapter.kt</url>
-          <line>66</line>
-          <option name="timeStamp" value="10" />
+          <line>50</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/walk10/frag/SelectImageRvAdapter.kt</url>
+          <line>20</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/walk10/frag/SelectImageRvAdapter.kt</url>
+          <line>21</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/walk10/utils/AdapterScary.kt</url>
+          <line>97</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/walk10/adapters/AdsRcAdapter.kt</url>
+          <line>57</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/walk10/frag/SelectImageRvAdapter.kt</url>
+          <line>17</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/walk10/utils/ImagePicker.kt</url>
+          <line>33</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/walk10/utils/ImagePicker.kt</url>
+          <line>32</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/walk10/utils/ImagePicker.kt</url>
+          <line>34</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/walk10/utils/ImagePicker.kt</url>
+          <line>77</line>
+          <option name="timeStamp" value="35" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -351,5 +421,10 @@
         <PinnedItemInfo parentTag="com.example.walk10.viewmodle.FirebaseViewModle" memberName="liveAdsData" />
       </pinned-members>
     </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="app">
+        <watch expression="cause" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

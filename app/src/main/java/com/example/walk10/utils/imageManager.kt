@@ -48,7 +48,7 @@ object imageManager {
         }
         for(i in uris.indices){
             kotlin.runCatching {
-            bitmapList.add(Picasso.get().load(File(uris[i].getPath())).resize(tempList[i][WIDTH], tempList[i][HEIGHT]).get()) //или убрать .getPath() июо он тут нахуй не нужен
+            bitmapList.add(Picasso.get().load(File(uris[i].path!!)).resize(tempList[i][WIDTH], tempList[i][HEIGHT]).get())
              }
 
         }

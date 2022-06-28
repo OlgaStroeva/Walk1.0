@@ -1,6 +1,5 @@
 package com.example.walk10.utils
 
-import android.graphics.Bitmap
 import android.net.Uri
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -17,7 +16,7 @@ import kotlinx.coroutines.launch
 
 object ImagePicker {
     const val MAX_IMAGE_COUNT = 3
-    const val REQUEST_CODE_GET_IMAGES = 999
+    //const val REQUEST_CODE_GET_IMAGES = 999
     private fun getOptions(imageCounter : Int): Options {
         val options = Options().apply {
             ratio = Ratio.RATIO_AUTO
@@ -31,17 +30,15 @@ object ImagePicker {
     }
 
     fun getMultiSelectedImages(edAct: EditAdsAct, uris: List<Uri>){
-        if(uris.size > 1 && edAct.chooseImageFrag == null) {
-
+        if(uris.size > 1){ //&& edAct.chooseImageFrag == null) {
             edAct.openChooseImageFrag(uris as ArrayList<Uri>)
-
-        } else if (uris.size == 1 && edAct.chooseImageFrag == null){
+        } else if (uris.size == 1) {//&& edAct.chooseImageFrag == null){
             CoroutineScope(Dispatchers.Main).launch{
                 edAct.rootElement.pBarLoad.visibility = View.VISIBLE
-                val bitMapArray = imageManager.imageResize(uris as ArrayList<Uri>, edAct) as ArrayList<Bitmap>
+                val bitMapArray = imageManager.imageResize(uris as ArrayList<Uri>, edAct) //as ArrayList<Bitmap>
                 edAct.rootElement.pBarLoad.visibility = View.GONE
                 edAct.imageAdapter.update(bitMapArray)
-                closePixFrag(edAct)
+                //closePixFrag(edAct)
             }
 
         }
@@ -51,6 +48,7 @@ object ImagePicker {
             when (result.status) {
                 PixEventCallback.Status.SUCCESS -> {
                     getMultiSelectedImages(edAct, result.data)
+                    closePixFrag(edAct)
                     }
                 PixEventCallback.Status.BACK_PRESSED -> {}
                 }
@@ -66,7 +64,9 @@ object ImagePicker {
                     openChooseImageFrag(edAct, f!!)
                     edAct.chooseImageFrag?.updateAdapter(result.data as ArrayList<Uri>, edAct)
                 }
-                PixEventCallback.Status.BACK_PRESSED -> {}
+                PixEventCallback.Status.BACK_PRESSED -> {
+                    closePixFrag(edAct)
+                }
             }
         }
     }
@@ -77,7 +77,7 @@ object ImagePicker {
             when (result.status) {
                 PixEventCallback.Status.SUCCESS -> {
                     edAct.chooseImageFrag = f
-                    openChooseImageFrag(edAct, f!!) //Разобраться с этой хуйнёй
+                    openChooseImageFrag(edAct, f!!)
                     singleImage(edAct, result.data[0])
                 }
                 PixEventCallback.Status.BACK_PRESSED -> {}

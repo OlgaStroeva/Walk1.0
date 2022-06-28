@@ -1,5 +1,6 @@
 package com.example.walk10.adapters
 
+import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.view.LayoutInflater
 import android.view.View
@@ -19,6 +20,7 @@ class ImageAdapter : RecyclerView.Adapter<ImageAdapter.ImageHolder>() {
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun update(newList: ArrayList<Bitmap>){
         mainArray.clear()
         mainArray.addAll(newList)

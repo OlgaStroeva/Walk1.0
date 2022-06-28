@@ -1,5 +1,6 @@
 package com.example.walk10.frag
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Bitmap
 import android.view.LayoutInflater
@@ -17,7 +18,7 @@ class SelectImageRvAdapter(val adapterCallback: AdapterCallback) : RecyclerView.
     val mainArray = ArrayList<Bitmap>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageHolder {
-        val viewBinding = SelectImageFragItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val viewBinding = SelectImageFragItemBinding.inflate(LayoutInflater.from(parent.context), parent, true)
         return ImageHolder(viewBinding, parent.context, this)
     }
 
@@ -36,6 +37,7 @@ class SelectImageRvAdapter(val adapterCallback: AdapterCallback) : RecyclerView.
         notifyItemMoved(startPos, targetPos)
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onClear() {
         notifyDataSetChanged()
     }
@@ -62,6 +64,7 @@ class SelectImageRvAdapter(val adapterCallback: AdapterCallback) : RecyclerView.
             viewBinding.imageView.setImageBitmap(bitmap)
         }
     }
+@SuppressLint("NotifyDataSetChanged")
 fun updateAdapter(newList: ArrayList<Bitmap>, needClear : Boolean){
     if(needClear) mainArray.clear()
     mainArray.addAll(newList)

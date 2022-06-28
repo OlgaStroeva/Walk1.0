@@ -24,7 +24,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, AdsRcAdapter.Listener {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, AdapterScary.Listener {
     private lateinit var tvAccount: TextView
     private lateinit var rootElement:ActivityMainBinding
     private val dialogHelper = DialogHelper(this)
@@ -39,9 +39,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setContentView(view)
         init()
         firebaseViewModel.loadAllAds()
-        initViewModel()
         initRecyclerView()
-        bottomMenuOnClick()
+        initViewModel()
     }
 
     override fun onResume() {
@@ -54,14 +53,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         uiUpdate(mAuth.currentUser)
     }
     private fun initViewModel(){
+
         firebaseViewModel.liveAdsData.observe(this) {
             if (it != null) {
-                rootElement.mainContent.rcView.adapter = AdapterScary(it)
+                rootElement.mainContent.rcView.adapter = AdapterScary(it, this)
                 rootElement.mainContent.rcView.layoutManager = LinearLayoutManager(this)
                 rootElement.mainContent.rcView.setHasFixedSize(true)
                 adapter.updateAdapter(it)
                 rootElement.mainContent.tvEmpty.visibility = if(it.isEmpty()) View.VISIBLE else View.GONE
             }
+            bottomMenuOnClick()
         }
     }
 

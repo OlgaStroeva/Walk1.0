@@ -11,7 +11,7 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
 class dbManager {
-    //val adArray = ArrayList<Ad>()
+    val adArray = ArrayList<Ad>()
     val db = Firebase.database.getReference(MAIN_NODE)
     val auth = Firebase.auth
     fun publishAd(ad : Ad, finishListener: FinishWorkListener){
@@ -71,7 +71,8 @@ class dbManager {
                         if(ad==null) ad = it.child(AD_NODE).getValue(Ad::class.java)
                     }
                     val infoItem = item.child(INFO_NODE).getValue(InfoItem::class.java)
-
+                    val favCounter = item.child(FAVS_NODE).childrenCount
+                    ad?.favCounter = favCounter.toString()
                     ad?.viewCounter = infoItem?.viewsCounter ?: "0"
                     ad?.callCounter = infoItem?.callCounter ?: "0"
                     if (ad!=null) adArray.add(ad!!)
