@@ -4,8 +4,10 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import com.example.walk10.MainActivity
 import com.example.walk10.R
 import com.example.walk10.adapters.ImageAdapter
@@ -17,6 +19,8 @@ import com.example.walk10.frag.FragmentCloseInterface
 import com.example.walk10.frag.ImageListFrag
 import com.example.walk10.utils.CityHelper
 import com.example.walk10.utils.ImagePicker
+import com.google.android.gms.tasks.OnCompleteListener
+import java.io.ByteArrayOutputStream
 import java.time.LocalDateTime
 
 class EditAdsAct :AppCompatActivity(), FragmentCloseInterface {
@@ -71,7 +75,7 @@ class EditAdsAct :AppCompatActivity(), FragmentCloseInterface {
         if(isEditState){
             dbManager.publishAd(adTemp.copy(key = ad?.key), onPublishFinish())
         } else {
-            dbManager.publishAd(adTemp, onPublishFinish())
+            uploadImages(adTemp)
         }
 
     }
@@ -96,7 +100,8 @@ class EditAdsAct :AppCompatActivity(), FragmentCloseInterface {
                 tvAnimal.text.toString(),
                 editTextTextDescription.text.toString(),
                 current.toString(),
-                dbManager.db.push().key, dbManager.auth.uid
+                dbManager.db.push().key, dbManager.auth.uid,
+                "empty"
             )
             return ad
         }
@@ -123,12 +128,41 @@ class EditAdsAct :AppCompatActivity(), FragmentCloseInterface {
     }
     fun onClickGetImages(view: View) {
         if(imageAdapter.mainArray.size == 0){
-            ImagePicker.getMultiImages(this, 3)
+            ImagePicker.getMultiImages(this, 1)
         } else {
-            openChooseImageFrag(null)
-            chooseImageFrag?.updateAdapterFromEdit(imageAdapter.mainArray)
+            val imageButton: ImageButton = view.findViewById(R.id.imageButton2)
+            if(imageAdapter.mainArray.size > 0){
+                imageButton.isVisible = false
+            }
+            /*openChooseImageFrag(null)
+            chooseImageFrag?.updateAdapterFromEdit(imageAdapter.mainArray)*/
         }
     }
+
+    private fun uploadImages(adTemp : Ad){
+        val byteArray = prepareImageByteArray(imageAdapter.mainArray[0])
+        uploadImage(byteArray){
+            dbManager.publishAd(adTemp.copy(mainImage = it.result.toString()), onPublishFinish())
+        }
+    }
+
+    private fun uploadImage(byteArray:ByteArray, listener: OnCompleteListener<Uri>){
+        val imStorageRef = dbManager.dbStorage
+            .child(dbManager.auth.uid!!)
+            .child("image_${System.currentTimeMillis()}")
+            val upTask = imStorageRef.putBytes(byteArray)
+        upTask.continueWithTask{
+            task->imStorageRef.downloadUrl
+        }.addOnCompleteListener(listener)
+
+    }
+
+    private fun prepareImageByteArray(bitMap: Bitmap):ByteArray{
+        val outStream = ByteArrayOutputStream()
+        bitMap.compress(Bitmap.CompressFormat.JPEG, 20, outStream)
+        return outStream.toByteArray()
+    }
+
 
     override fun onFragClose(list: ArrayList<Bitmap>) {
         rootElement.scrollViewMain.visibility = View.VISIBLE

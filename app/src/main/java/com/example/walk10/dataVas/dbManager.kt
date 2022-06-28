@@ -9,10 +9,12 @@ import com.google.firebase.database.Query
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
 
 class dbManager {
     val adArray = ArrayList<Ad>()
     val db = Firebase.database.getReference(MAIN_NODE)
+    val dbStorage = Firebase.storage.getReference(MAIN_NODE)
     val auth = Firebase.auth
     fun publishAd(ad : Ad, finishListener: FinishWorkListener){
         if (auth.uid != null)
@@ -71,8 +73,12 @@ class dbManager {
                         if(ad==null) ad = it.child(AD_NODE).getValue(Ad::class.java)
                     }
                     val infoItem = item.child(INFO_NODE).getValue(InfoItem::class.java)
+
                     val favCounter = item.child(FAVS_NODE).childrenCount
+                    val isFav = auth.uid?.let { item.child(FAVS_NODE).child(it).getValue(String::class.java) }
+                    ad?.isFav = isFav != null
                     ad?.favCounter = favCounter.toString()
+
                     ad?.viewCounter = infoItem?.viewsCounter ?: "0"
                     ad?.callCounter = infoItem?.callCounter ?: "0"
                     if (ad!=null) adArray.add(ad!!)
@@ -91,7 +97,7 @@ class dbManager {
     }
 
     fun getMyFavs(readDataCallback: ReadDataCallback?) {
-        val query = db.orderByChild(auth.uid + "/favs/${auth.uid}").equalTo(auth.uid)
+        val query = db.orderByChild("/favs/${auth.uid}").equalTo(auth.uid)
         readDataFromDb(query,readDataCallback)
     }
 

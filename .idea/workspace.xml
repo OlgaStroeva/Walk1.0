@@ -6,20 +6,33 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="debug" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c7c3128-7ecd-423c-b803-68a19e382939" name="Default Changelist" comment="AdsAdapter changed and almost everything work" />
+    <list default="true" id="7c7c3128-7ecd-423c-b803-68a19e382939" name="Default Changelist" comment="AdsAdapter changed and almost everything work">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/act/EditAdsAct.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/act/EditAdsAct.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/data/Ad.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/data/Ad.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/dataVas/dbManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/dataVas/dbManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/frag/ImageListFrag.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/frag/ImageListFrag.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/utils/AdapterCallback.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/utils/AdapterCallback.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/utils/AdapterScary.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/utils/AdapterScary.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/utils/ImagePicker.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/utils/ImagePicker.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/utils/imageManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/utils/imageManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/viewmodle/FirebaseViewModle.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/walk10/viewmodle/FirebaseViewModle.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ChangesViewManager" show_ignored="true" />
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[192.168.56.101:5555]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -353,7 +366,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/walk10/frag/ImageListFrag.kt</url>
-          <line>88</line>
+          <line>85</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
@@ -373,7 +386,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/walk10/utils/AdapterScary.kt</url>
-          <line>97</line>
+          <line>100</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
@@ -388,23 +401,38 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/walk10/utils/ImagePicker.kt</url>
-          <line>33</line>
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/walk10/utils/ImagePicker.kt</url>
-          <line>32</line>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/walk10/utils/ImagePicker.kt</url>
-          <line>34</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/walk10/utils/ImagePicker.kt</url>
-          <line>77</line>
+          <line>73</line>
           <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/walk10/utils/ImagePicker.kt</url>
+          <line>74</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/walk10/utils/ImagePicker.kt</url>
+          <line>95</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/walk10/utils/imageManager.kt</url>
+          <line>52</line>
+          <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/walk10/act/EditAdsAct.kt</url>
+          <line>102</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/walk10/act/EditAdsAct.kt</url>
+          <line>73</line>
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/walk10/act/EditAdsAct.kt</url>
+          <line>77</line>
+          <option name="timeStamp" value="58" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

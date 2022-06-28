@@ -12,7 +12,8 @@ data class Ad (
     val date: String? = null,
     val key: String? = null,
     val uid: String? = null,
-    val isFav: Boolean = false,
+    val mainImage: String? = null,
+    var isFav: Boolean = false,
     var favCounter: String? = "0",
 
     var viewCounter: String = "0",

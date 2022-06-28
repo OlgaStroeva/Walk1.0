@@ -23,7 +23,12 @@ class FirebaseViewModle: ViewModel() {
                 val pos = updatedList?.indexOf(ad)
                 if(pos != -1){
                     pos?.let{
-                        updatedList[pos] = updatedList[pos].copy(isFav = !ad.isFav)
+                        val count = ad.favCounter?.toInt()
+                        val favCounter: Int
+                        if(count!=null){
+                            favCounter = if(ad.isFav) (count - 1) else (count + 1)
+                        } else favCounter = 1
+                        updatedList[pos] = updatedList[pos].copy(isFav = !ad.isFav, favCounter = favCounter.toString())
                     }
                 }
                 liveAdsData.postValue(updatedList)

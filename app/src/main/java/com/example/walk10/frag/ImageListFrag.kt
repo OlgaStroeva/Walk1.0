@@ -62,15 +62,12 @@ class ImageListFrag(private val fragCloseInterface : FragmentCloseInterface)
         adapter.updateAdapter(bitmapList, true)
     }
 
-    override fun onDetach() {
-        super.onDetach()
+    override fun onClose(){
+        //super.onClose()
+        activity?.supportFragmentManager?.beginTransaction()?.remove(this@ImageListFrag)?.commit()
         fragCloseInterface.onFragClose(adapter.mainArray)
         job?.cancel()
     }
-    /*override fun onClose(){
-        super.onClose()
-        activity?.supportFragmentManager?.beginTransaction()?.remove(this@ImageListFrag)?.commit()
-    }*/
 
     fun resizeSelectedImages(newList: ArrayList<Uri>?, needClear: Boolean, activity : Activity){
         job = CoroutineScope(Dispatchers.Main).launch {
@@ -101,7 +98,7 @@ class ImageListFrag(private val fragCloseInterface : FragmentCloseInterface)
             true
         }
         addImageItem?.setOnMenuItemClickListener {
-            val imageCount = ImagePicker.MAX_IMAGE_COUNT - adapter.mainArray.size
+            val imageCount =  1 //ImagePicker.MAX_IMAGE_COUNT - adapter.mainArray.size
             ImagePicker.addImages(activity as EditAdsAct, imageCount)
             true
         }
